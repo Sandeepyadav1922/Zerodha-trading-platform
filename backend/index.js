@@ -6,7 +6,11 @@ const User = require("./schemas/User");
 const bodyParser = require("body-parser");
 const wrapAsync = require("./utils/wrapAsync");
 const ExpressError = require("./utils/ExpressError");
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    "https://zerodha-trading-platform-frontend.onrender.com",
+];
 const cors = require("cors");
 const session = require('express-session');
 const passport = require("passport");
