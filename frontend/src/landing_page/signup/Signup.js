@@ -39,7 +39,7 @@ function Signup() {
             email: values.email,
             password: values.password
         });
-      window.location.href = "http://localhost:3001";
+      window.location.href = "https://zerodha-trading-platform-dashboard.onrender.com";
         } catch(err) {
           console.log(err.response.data.error)
           setMsg(err.response.data.error);
