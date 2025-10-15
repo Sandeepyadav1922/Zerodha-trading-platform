@@ -12,7 +12,7 @@ function Team() {
       >
         <div className="col-lg-6 p-3 text-center">
           <img
-            src="media/images/sky.png"
+            src="media/images/sky.png" alt="sky"
             style={{ borderRadius: "100%", width: "50%" }}
           />
           <h4 className="mt-5">Sandeep Kr. Yadav</h4>
@@ -30,8 +30,8 @@ function Team() {
           </p>
           <p>Playing basketball is his zen.</p>
           <p>
-            Connect on <a href="">Homepage</a> / <a href="">TradingQnA</a> /{" "}
-            <a href="">Twitter</a>
+            Connect on <a href="/about">Homepage</a> / <a href="/about">TradingQnA</a> /{" "}
+            <a href="/about">Twitter</a>
           </p>
         </div>
       </div>

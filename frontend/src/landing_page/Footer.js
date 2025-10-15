@@ -7,7 +7,7 @@ function Footer() {
       <div className="container border-top mt-5">
         <div className="row mt-3">
           <div className="col-lg-3" style={{marginTop: "2rem"}}>
-            <img src="media/images/logo.svg" style={{ width: "180px",}} />
+            <img src="media/images/logo.svg" alt="footer-img" style={{ width: "180px",}} />
             <p className="mt-3" style={{fontSize: "14px", opacity: "0.8"}}>
               &copy; 2010 - 2025, Not Zerodha Broking Ltd. All rights reserved.
             </p>
@@ -39,77 +39,77 @@ function Footer() {
           <div className="col-lg-2 footer-links">
             <h5 style={{marginTop: "2rem"}}>Account</h5>
             <br />
-            <a href="">Open demat account</a>
+            <a href="/">Open demat account</a>
             <br /><br />
-            <a href="">Minor demat account</a>
+            <a href="/">Minor demat account</a>
             <br /><br />
-            <a href="">NRI demat account</a>
+            <a href="/">NRI demat account</a>
             <br /><br />
-            <a href="">Commodity</a>
+            <a href="/">Commodity</a>
             <br /><br />
-            <a href="">Dematerialisation</a>
+            <a href="/">Dematerialisation</a>
             <br /><br />
-            <a href="">Fund transfer</a>
+            <a href="/">Fund transfer</a>
             <br /><br />
-            <a href="">MTF</a>
+            <a href="/">MTF</a>
             <br /><br />
-            <a href="">Referral program</a>
+            <a href="/">Referral program</a>
             <br />
           </div>
           <div className="col-lg-2 footer-links">
             <h5 style={{marginTop: "2rem"}}>Support</h5>
             <br />
-            <a href="">Contact us</a>
+            <a href="/">Contact us</a>
             <br /><br />
-            <a href="">Support portal</a>
+            <a href="/">Support portal</a>
             <br /><br />
-            <a href="">How to file a complaint?</a>
+            <a href="/">How to file a complaint?</a>
             <br /><br />
-            <a href="">Status of your complaints</a>
+            <a href="/">Status of your complaints</a>
             <br /><br />
-            <a href="">Bulletin</a>
+            <a href="/">Bulletin</a>
             <br /><br />
-            <a href="">Circular</a>
+            <a href="/">Circular</a>
             <br /><br />
-            <a href="">Z-Connect blog</a>
+            <a href="/">Z-Connect blog</a>
             <br /><br />
-            <a href="">Downloads</a>
+            <a href="/">Downloads</a>
             <br />
           </div>
           <div className="col-lg-2 footer-links">
             <h5 style={{marginTop: "2rem"}}>Company</h5>
             <br />
-            <a href="">About</a>
+            <a href="/">About</a>
             <br /><br />
-            <a href="">Philosophy</a>
+            <a href="/">Philosophy</a>
             <br /><br />
-            <a href="">Press & media</a>
+            <a href="/">Press & media</a>
             <br /><br />
-            <a href="">Careers</a>
+            <a href="/">Careers</a>
             <br /><br />
-            <a href="">Zerodha Cares (CSR)</a>
+            <a href="/">Zerodha Cares (CSR)</a>
             <br /><br />
-            <a href="">Zerodha.tech</a>
+            <a href="/">Zerodha.tech</a>
             <br /><br />
-            <a href="">Open source</a>
+            <a href="/">Open source</a>
             <br />
           </div>
           <div className="col-lg-2 footer-links">
             <h5 style={{marginTop: "2rem"}}>Quick links</h5>
             <br />
-            <a href="">Upcoming IPOs</a>
+            <a href="/">Upcoming IPOs</a>
             <br /><br />
-            <a href="">Brokerage charges</a>
+            <a href="/">Brokerage charges</a>
             <br /><br />
-            <a href="">Market holidays</a>
+            <a href="/">Market holidays</a>
             <br /><br />
-            <a href="">Economic calendar</a>
+            <a href="/">Economic calendar</a>
             <br /><br />
-            <a href="">Calculators</a>
+            <a href="/">Calculators</a>
             <br /><br />
-            <a href="">Markets</a>
+            <a href="/">Markets</a>
             <br /><br />
-            <a href="">Sectors</a>
+            <a href="/">Sectors</a>
             <br />
           </div>
         </div>

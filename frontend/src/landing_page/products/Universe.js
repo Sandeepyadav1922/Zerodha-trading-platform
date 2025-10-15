@@ -10,7 +10,7 @@ function Universe() {
 
         <div className="col-lg-4 col-md-6 p-3 mt-lg-5">
           <img
-            src="media/images/zerodhaFundhouse.png"
+            src="media/images/zerodhaFundhouse.png" alt="zerodhaFoundhouse"
             style={{ width: "200px" }}
           />
           <p className="text-small text-muted mt-3" style={{fontSize: "13px"}}>
@@ -20,7 +20,7 @@ function Universe() {
         </div>
         <div className="col-lg-4 col-md-6 p-3 mt-lg-5">
           <img
-            src="media/images/sensibullLogo.svg"
+            src="media/images/sensibullLogo.svg" alt="sensibull"
             style={{ width: "240px" }}
           />
           <p className="text-small text-muted mt-4" style={{fontSize: "13px"}}>
@@ -30,14 +30,14 @@ function Universe() {
           </p>
         </div>
         <div className="col-lg-4 col-md-6 p-3 mt-lg-5">
-          <img src="media/images/tijori.svg" style={{ width: "140px" }} />
+          <img src="media/images/tijori.svg" alt="tijori" style={{ width: "140px" }} />
           <p className="text-small text-muted mt-3" style={{fontSize: "13px"}}>
             Investment research platform that offers detailed insights on
             stocks, sectors, supply chains, and more.
           </p>
         </div>
         <div className="col-lg-4 col-md-6 p-3 mt-lg-5">
-          <img src="media/images/streakLogo.png" style={{ width: "170px" }} />
+          <img src="media/images/streakLogo.png" alt="streakLogo" style={{ width: "170px" }} />
           <p className="text-small text-muted mt-3" style={{fontSize: "13px"}}>
             Systematic trading platform that allows you to create and backtest
             strategies without coding.
@@ -45,7 +45,7 @@ function Universe() {
         </div>
         <div className="col-lg-4 col-md-6 p-3 mt-lg-5">
           <img
-            src="media/images/smallcaseLogo.png"
+            src="media/images/smallcaseLogo.png" alt="smallcaseLogo"
             style={{ width: "210px" }}
           />
           <p className="text-small text-muted mt-3" style={{fontSize: "13px"}}>
@@ -54,7 +54,7 @@ function Universe() {
           </p>
         </div>
         <div className="col-lg-4 col-md-6 p-3 mt-lg-5">
-          <img src="media/images/dittoLogo.png" style={{ width: "140px" }} />
+          <img src="media/images/dittoLogo.png" alt="dittoLogo" style={{ width: "140px" }} />
           <p className="text-small text-muted mt-3" style={{fontSize: "13px"}}>
             Personalized advice on life and health insurance. No spam and no
             mis-selling.
