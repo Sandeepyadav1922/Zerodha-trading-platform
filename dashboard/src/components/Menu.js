@@ -5,7 +5,6 @@ import api from "./api";
 const Menu = ({user}) => {
   const [selectedMenu, setselectedMenu] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isProfileDropdownOpen, , setIsProfileDropdownOpen] = useState(false);
 
   const handleMenuClick = (index) => {
     setselectedMenu(index);
@@ -26,7 +25,7 @@ const Menu = ({user}) => {
 
   return (
     <div className="menu-container">
-      <img className="img-logo" src="logo (1).png" style={{ width: "50px" }} />
+      <img className="img-logo" alt="img-logo src="logo (1).png" style={{ width: "50px" }} />
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
