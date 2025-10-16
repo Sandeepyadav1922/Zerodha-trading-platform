@@ -25,7 +25,7 @@ const Menu = ({user}) => {
 
   return (
     <div className="menu-container">
-      <img className="img-logo" alt="img-logo src="logo (1).png" style={{ width: "50px" }} />
+      <img className="img-logo" alt="img-logo" src="logo (1).png" style={{ width: "50px" }} />
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
