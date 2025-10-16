@@ -39,7 +39,7 @@ function Signup() {
             email: values.email,
             password: values.password
         });
-      window.location.href = "https://zerodhaappdashboard.netlify.app";
+      window.location.href = "http://localhost:3001";
         } catch(err) {
           console.log(err.response.data.error)
           setMsg(err.response.data.error);

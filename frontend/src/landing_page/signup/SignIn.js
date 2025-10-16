@@ -29,7 +29,7 @@ function SignIn() {
           username: values.username,
           password: values.password,
         });
-        window.location.href = "https://zerodhaappdashboard.netlify.app";
+        window.location.href = "http://localhost:3001";
       } catch (err) {
         setMsg("Invalid Username OR Password");
       }

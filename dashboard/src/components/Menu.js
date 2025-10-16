@@ -13,7 +13,7 @@ const Menu = ({user}) => {
   const handleLogOut = async () => {
     try {
       await api.post("/logout");
-      window.location.href = "https://zerodhatradingplatformfrontend.netlify.app";
+      window.location.href = "http://localhost:3000";
     } catch(err) {
       console.log(err);
       alert("Log Out failled");
