@@ -9,8 +9,6 @@ const ExpressError = require("./utils/ExpressError");
 const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:3001',
-    "https://zerodha-trading-platform-frontend.onrender.com",
-    "https://zerodha-trading-platform-dashboard.onrender.com",
     "https://zerodhatradingplatformfrontend.netlify.app",
     "https://zerodhaappdashboard.netlify.app"
 ];
@@ -50,6 +48,8 @@ let sessionOptions = ({
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
+        secure: true,
+        sameSite: none
     },
 });
 
