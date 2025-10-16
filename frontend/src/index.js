@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, HashRouter as Router, Routes } from "react-router-dom";
 import "./index.css";
 
 import AboutPage from "./landing_page/about/AboutPage";
@@ -17,7 +17,7 @@ import NotFound from "./landing_page/NotFound";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-  <HashRouter>
+  <Router>
     <Navbar />
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -30,6 +30,6 @@ root.render(
       <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
-    </HashRouter>
+    </Router>
   </BrowserRouter>
 );
