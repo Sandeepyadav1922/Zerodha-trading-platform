@@ -1,14 +1,14 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
-import api from "./api";
 
 const Home = () => {
 
 let [user, setUser] = useState(null);
 
 useEffect(() => {
-    api.get('/authenticate')
+    axios.get('https://zerodha-trading-platform-backend.onrender.com/authenticate')
       .then(res => {
         setUser(res.data.user);
       })
