@@ -29,7 +29,7 @@ function SignIn() {
           username: values.username,
           password: values.password,
         });
-        window.location.href = "https://zerodha-trading-platform-dashboard.onrender.com";
+        window.location.href = "https://zerodhaappdashboard.netlify.app";
       } catch (err) {
         setMsg("Invalid Username OR Password");
       }

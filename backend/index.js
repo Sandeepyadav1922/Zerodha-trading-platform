@@ -11,7 +11,8 @@ const allowedOrigins = [
     'http://localhost:3001',
     "https://zerodha-trading-platform-frontend.onrender.com",
     "https://zerodha-trading-platform-dashboard.onrender.com",
-    "https://zerodhatradingplatformfrontend.netlify.app"
+    "https://zerodhatradingplatformfrontend.netlify.app",
+    "https://zerodhaappdashboard.netlify.app"
 ];
 const cors = require("cors");
 const session = require('express-session');
