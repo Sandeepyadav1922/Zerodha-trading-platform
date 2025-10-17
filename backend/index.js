@@ -10,7 +10,9 @@ const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:3001',
     "https://zerodhatradingplatformfrontend.netlify.app",
-    "https://zerodhaappdashboard.netlify.app"
+    "https://zerodhaappdashboard.netlify.app",
+    "https://zerodhadashboard-8wc6.onrender.com",
+    "https://zerodha-trading-platform.onrender.com"
 ];
 const cors = require("cors");
 const session = require('express-session');
@@ -102,8 +104,7 @@ app.post("/login",
     res.json({message: "Login successfully", user: req.user});
 });
 
-
-app.get("/authenticate", (req, res) => {
+app.get("/auth", (req, res) => {
     if(req.isAuthenticated()) {
         res.json({user: req.user});
     } else {
