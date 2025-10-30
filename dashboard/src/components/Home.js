@@ -1,4 +1,3 @@
-// import axios from "axios";
 import { useEffect, useState } from "react";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
@@ -9,7 +8,7 @@ const Home = () => {
 let [user, setUser] = useState(null);
 
 useEffect(() => {
-    api.get('/authenticate')
+    api.get('/auth')
       .then(res => {
         if(res) {
         setUser(res.data.user);
