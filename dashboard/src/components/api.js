@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://zerodhabackend-zc52.onrender.com",
+    baseURL: "https://zerodha-backend-r6zl.onrender.com",
     withCredentials: true,
 });
 
