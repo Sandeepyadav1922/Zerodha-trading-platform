@@ -9,10 +9,8 @@ const ExpressError = require("./utils/ExpressError");
 const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:3001',
-    "https://zerodhatradingplatformfrontend.netlify.app",
-    "https://zerodhaappdashboard.netlify.app",
-    "https://zerodhadashboard-8wc6.onrender.com",
-    "https://zerodha-trading-platform.onrender.com"
+    "https://zerodha-app-qfcm.onrender.com",
+    "https://zerodha-dashboard-o1pv.onrender.com",
 ];
 const cors = require("cors");
 const session = require('express-session');
