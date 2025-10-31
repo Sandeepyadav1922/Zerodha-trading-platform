@@ -43,13 +43,11 @@ app.use(express.urlencoded({extended : true}));
 let sessionOptions = ({
     secret: "itismysupersecretkey",
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: true,
-        sameSite: "none",
     },
 });
 
