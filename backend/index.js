@@ -6,12 +6,12 @@ const User = require("./schemas/User");
 const bodyParser = require("body-parser");
 const wrapAsync = require("./utils/wrapAsync");
 const ExpressError = require("./utils/ExpressError");
-const allowedOrigins = [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    "https://zerodha-app-qfcm.onrender.com",
-    "https://zerodha-dashboard-o1pv.onrender.com",
-];
+// const allowedOrigins = [
+//     'http://localhost:3000',
+//     'http://localhost:3001',
+//     "https://zerodha-app-qfcm.onrender.com",
+//     "https://zerodha-dashboard-o1pv.onrender.com",
+// ];
 const cors = require("cors");
 const session = require('express-session');
 const passport = require("passport");
@@ -28,15 +28,26 @@ const url = process.env.MONGO_URL;
 const app = express();
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
+    origin: [
+        'http://localhost:3000',
+    'http://localhost:3001',
+    "https://zerodha-app-qfcm.onrender.com",
+    "https://zerodha-dashboard-o1pv.onrender.com",
+    ],
+    credentials: true,
+})
+);
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// }));
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended : true}));
 
@@ -44,7 +55,7 @@ let sessionOptions = ({
     secret: "itismysupersecretkey",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({url}),
+    // store: new MongoStore({url}),
     cookie: {
         secure: true,
         sameSite: "none",
