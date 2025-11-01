@@ -21,33 +21,26 @@ const url = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors({
-    origin: [
-        'http://localhost:3000',
+const allowedOrigins = [
+    'http://localhost:3000',
     'http://localhost:3001',
     "https://zerodha-app-qfcm.onrender.com",
     "https://zerodha-dashboard-o1pv.onrender.com",
-    ],
-    credentials: true,
-})
-);
+];
 
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended : true}));
-
-// let sessionOptions = ({
-//     secret: "itismysupersecretkey",
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-//         maxAge: 7 * 24 * 60 * 60 * 1000,
-//         httpOnly: true,
-//         secure: false,
-//         sameSite: "lax",
-//     },
-// });
 
 let sessionOptions = {
     secret: "itismysupersecretkey",
