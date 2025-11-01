@@ -36,7 +36,20 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended : true}));
 
-let sessionOptions = ({
+// let sessionOptions = ({
+//     secret: "itismysupersecretkey",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+//         maxAge: 7 * 24 * 60 * 60 * 1000,
+//         httpOnly: true,
+//         secure: false,
+//         sameSite: "lax",
+//     },
+// });
+
+let sessionOptions = {
     secret: "itismysupersecretkey",
     resave: false,
     saveUninitialized: false,
@@ -47,7 +60,13 @@ let sessionOptions = ({
         secure: false,
         sameSite: "lax",
     },
-});
+};
+
+if (process.env.NODE_ENV === "production") {
+    app.set("trust proxy", 1);
+    sessionOptions.cookie.secure = true;
+    sessionOptions.cookie.sameSite = "none";
+}
 
 app.use(session(sessionOptions));
 app.use(passport.initialize());
