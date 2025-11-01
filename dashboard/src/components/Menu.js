@@ -89,7 +89,6 @@ const Menu = ({user}) => {
           <li>
             <Link
               style={{ textDecoration: "none",}}
-              to="/logout"
               onClick={() => handleLogOut()}
             >
                 <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>
