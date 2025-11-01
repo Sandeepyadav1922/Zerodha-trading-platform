@@ -44,7 +44,7 @@ let sessionOptions = ({
     secret: "itismysupersecretkey",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore(url),
+    store: new MongoStore({mongoUrl: process.env.MONGO_URL}),
     cookie: {
         secure: true,
         sameSite: "none",
