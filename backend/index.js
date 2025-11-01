@@ -43,10 +43,11 @@ app.use(express.urlencoded({extended : true}));
 let sessionOptions = ({
     secret: "itismysupersecretkey",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store: new MongoStore(url),
     cookie: {
         secure: true,
-        sameSite: true,
+        sameSite: "none",
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
