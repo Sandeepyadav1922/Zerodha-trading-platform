@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import api from "./Api";
+// import api from "./Api";
+import axios from "axios";
 
 const validate = (values) => {
   const errors = {};
@@ -25,10 +26,10 @@ function SignIn() {
     validate,
     onSubmit: async (values) => {
       try {
-        await api.post("/login", {
+        await axios.post("https://zerodha-backend-r6zl.onrender.com/login", {
           username: values.username,
           password: values.password,
-        });
+        }, {withCredentials: true});
         window.location.href = "https://zerodha-dashboard-o1pv.onrender.com";
       } catch (err) {
         setMsg("Invalid Username OR Password");

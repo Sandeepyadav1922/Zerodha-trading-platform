@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
-import api from "./api";
+// import api from "./api";
+import axios from "axios";
 
 const Home = () => {
 
 let [user, setUser] = useState(null);
 
 useEffect(() => {
-    api.get('/auth')
+    axios.get('https://zerodha-backend-r6zl.onrender.com/auth', {withCredentials: true})
       .then(res => {
         if(res) {
         setUser(res.data.user);
