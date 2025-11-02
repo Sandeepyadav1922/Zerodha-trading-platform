@@ -13,6 +13,8 @@ useEffect(() => {
         if(res) {
         setUser(res.data.user);
         console.log("user is logged in");
+        console.log(process.env.REACT_APP_FRONTEND_URL);
+  console.log(process.env.REACT_APP_API_URL);
         } else {
           console.log("User not logged in")
         }
