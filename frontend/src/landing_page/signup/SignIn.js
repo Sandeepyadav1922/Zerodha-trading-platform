@@ -24,8 +24,6 @@ function SignIn() {
     },
     validate,
     onSubmit: async (values) => {
-        console.log(process.env.REACT_APP_API_URL)
-        console.log(process.env.REACT_APP_DASHBOARD_URL)
       try {
         await api.post("/login", {
           username: values.username,

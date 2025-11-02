@@ -13,7 +13,7 @@ const Menu = ({user}) => {
   const handleLogOut = async () => {
     try {
       await api.post("/logout");
-      window.location.href = "https://zerodha-app-qfcm.onrender.com";
+      window.location.href = process.env.REACT_APP_FRONTEND_URL;
     } catch(err) {
       console.log(err);
       alert("Log Out failled");
@@ -104,55 +104,6 @@ const Menu = ({user}) => {
         </div>
       </div>
     </div>
-
-    // <div className="menu-container">
-    //   <img src="logo (1).png" style={{ width: "50px" }} />
-
-    //   {/* Hamburger for mobile */}
-    //   <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-    //     ☰
-    //   </div>
-
-    //   <div className={`menus ${menuOpen ? "active" : ""}`}>
-    //     <ul>
-    //       <li>
-    //         <Link to="/" onClick={() => handleMenuClick(0)}>
-    //           <p className={selectedMenu === 0 ? "active" : ""}>Dashboard</p>
-    //         </Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/orders" onClick={() => handleMenuClick(1)}>
-    //           <p className={selectedMenu === 1 ? "active" : ""}>Orders</p>
-    //         </Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/holdings" onClick={() => handleMenuClick(2)}>
-    //           <p className={selectedMenu === 2 ? "active" : ""}>Holdings</p>
-    //         </Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/positions" onClick={() => handleMenuClick(3)}>
-    //           <p className={selectedMenu === 3 ? "active" : ""}>Positions</p>
-    //         </Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/funds" onClick={() => handleMenuClick(4)}>
-    //           <p className={selectedMenu === 4 ? "active" : ""}>Funds</p>
-    //         </Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/logout" onClick={handleLogOut}>
-    //           <b>Log Out</b>
-    //         </Link>
-    //       </li>
-    //     </ul>
-    //     <hr />
-    //     <div className="profile">
-    //       <div className="avatar">U</div>
-    //       <p className="username">{user.username}</p>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
