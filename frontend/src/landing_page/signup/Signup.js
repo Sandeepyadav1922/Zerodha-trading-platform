@@ -39,7 +39,7 @@ function Signup() {
             email: values.email,
             password: values.password
         });
-      window.location.href = "https://zerodha-dashboard-o1pv.onrender.com";
+      window.location.href = process.env.REACT_APP_DASHBOARD_URL;
         } catch(err) {
           console.log(err.response.data.error)
           setMsg(err.response.data.error);
