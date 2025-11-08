@@ -13,7 +13,7 @@ const Menu = ({user}) => {
   const handleLogOut = async () => {
     try {
       await api.post("/logout");
-      window.location.href = process.env.REACT_APP_FRONTEND_URL;
+      window.location.href = "https://zerodha-app-qfcm.onrender.com";
     } catch(err) {
       console.log(err);
       alert("Log Out failled");
