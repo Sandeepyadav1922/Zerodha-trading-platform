@@ -31,7 +31,7 @@ function SignIn() {
           username: values.username,
           password: values.password,
         })
-        window.location.href = "https://zerodha-dashboard-o1pv.onrender.com";
+        window.location.href = process.env.REACT_APP_DASHBOARD_URL;
       } catch (err) {
         setMsg("Invalid Username OR Password");
       }
