@@ -6,6 +6,7 @@ import api from "./api";
 const Home = () => {
 
 let [user, setUser] = useState(null);
+console.log(process.env.REACT_APP_API_URL);
 
 useEffect(() => {
     api.get('/auth')
