@@ -1,16 +1,29 @@
 .container {
     --radius: 4px;
-    width: 40%;
+    /* width: 40%; */
     height: 63%;
     background: rgb(245, 245, 245);
     position: absolute;
-    bottom: 0;
+    bottom: 15%;
     left: 35%;
     cursor: move;
     box-sizing: border-box;
     z-index: 100;
     border-radius: var(--radius);
     border: 1px solid rgb(238, 238, 238);
+  }
+
+  @media(max-width: 900px) {
+    .container {
+      left: 15%;
+    }
+  }
+
+  @media(max-width: 500px) {
+    .container {
+      width: 90%;
+      left: 5%;
+    }
   }
   
   .dragging {
@@ -79,7 +92,7 @@
   
   .regular-order {
     padding: 16px 26px;
-    background-color: #fff;
+    background-color: #8ab3b0;
     padding-bottom: 30px;
   }
   
@@ -103,14 +116,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 16px;
     margin-bottom: 16px;
+  }
+
+  @media(max-width: 700px) {
+    .inputs {
+      justify-content: center;
+    }
   }
   
   .inputs fieldset {
     max-width: 120px;
     box-sizing: border-box;
-    border: 0.7px solid #ddd;
+    border: 0.7px solid #000;
     margin-right: 8px;
   }
   
@@ -118,10 +138,6 @@
     margin-left: 10px;
     font-size: 0.8rem;
     padding: 0 4px;
-  }
-  
-  .inputs fieldset:last-of-type legend {
-    color: #ddd;
   }
   
   .inputs fieldset input {
@@ -132,6 +148,14 @@
     padding: 0 12px;
     box-sizing: border-box;
     font-size: 1.1rem;
+    background-color: #8ab3b0;
+    color: #3c317c;
+  }
+
+  @media(max-width: 500px) {
+    .inputs fieldset input {
+      max-width: 200px;
+    }
   }
   
   .options {
@@ -154,30 +178,39 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     position: relative;
     top: 10%;
+    gap: 20px;
     padding: 0 20px;
   }
   
   .buttons span {
     font-size: 0.8rem;
   }
+
+  /* @media(max-width: 400px) {
+    .buttons span {
+      display: inline-block;
+    }
+  } */
   
-  .btn {
+  .button {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 2px;
     color: #fff;
     margin-right: 2px;
     margin-left: 2px;
+    /* margin-top: 1rem; */
   }
   
-  .btn-grey {
+  .btn-cancel {
     background: #d4d4d4;
     color: #666666;
   }
   
-  .btn-blue {
+  .btn-buy {
     background: #4184f3;
   }
   
@@ -210,11 +243,11 @@
     background-color: transparent;
   }
   
-  .btn-blue:hover {
+  .btn-buy:hover {
     background: #74a7fa;
   }
   
-  .btn-grey:hover {
+  .btn-cancel:hover {
     background: #9b9b9b;
     color: #fff;
   }

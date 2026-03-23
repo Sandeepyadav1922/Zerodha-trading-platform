@@ -1,8 +1,8 @@
 require("dotenv").config();
-
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
-const User = require("./schemas/User");
+const User = require("./models/users");
 const bodyParser = require("body-parser");
 const wrapAsync = require("./utils/wrapAsync");
 const ExpressError = require("./utils/ExpressError");
@@ -11,31 +11,20 @@ const session = require('express-session');
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
-const { HoldingsModel } = require("./model/HoldingsModel");
-const { PositionsModel} = require("./model/PositionsModel");
-const { OrdersModel } = require("./model/OrdersModel");
+const userRoutes = require("./routes/userRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 
 const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
 
-const app = express();
-
-const allowedOrigins = [
+app.use(cors({
+  origin: [
     'http://localhost:3000',
     'http://localhost:3001',
     "https://zerodha-app-qfcm.onrender.com",
     "https://zerodha-dashboard-o1pv.onrender.com",
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  ],
   credentials: true,
 }));
 
@@ -55,86 +44,30 @@ let sessionOptions = {
     },
 };
 
-if (process.env.NODE_ENV === "production") {
-    app.set("trust proxy", 1);
-    sessionOptions.cookie.secure = true;
-    sessionOptions.cookie.sameSite = "none";
-}
+// if (process.env.NODE_ENV === "production") {
+//     app.set("trust proxy", 1);
+//     sessionOptions.cookie.secure = true;
+//     sessionOptions.cookie.sameSite = "none";
+// }
 
 app.use(session(sessionOptions));
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.get("/allHoldings", async(req, res) => {
-    let allHoldings = await HoldingsModel.find({});;
-    res.json(allHoldings);
-});
+app.use("/", dashboardRoutes);
+app.use("/", userRoutes);
 
-app.get("/allPositions", async(req, res) => {
-    let allPositions = await PositionsModel.find({});;
-    res.json(allPositions);
-});
-
-app.post("/newOrder", async (req, res) => {
-    let newOrder = new OrdersModel({
-    name: req.body.name,
-    qty: req.body.qty,
-    price: req.body.price,
-    mode: req.body.mode,
-    });
-
-    newOrder.save();
-    res.send("Order saved!");
-});
-
-app.post("/signup", wrapAsync(async(req, res) => {
-    try {
-        let {username, email, password} = req.body;
-    let newUser = new User({email, username});
-    await User.register(newUser, password);
-    req.login(newUser, (err) => {
-        if(err) {
-            return res.status(500).json({error: "Login after signup failled"});
-        }
-        res.json({message: "Signup and Login successful", user: req.user});
-    });
-    } catch(err) {
-        res.status(400).json({error: err.message});
-    }
-    
-}));
-
-app.post("/login",
-    passport.authenticate("local"), (req, res)  => {
-    res.json({message: "Login successfully", user: req.user});
-});
-
-app.get("/auth", (req, res) => {
-    if(req.isAuthenticated()) {
-        res.json({user: req.user});
-    } else {
-        res.status(400).json({message: "Not Logged In"});
-    }
-});
-
-app.post("/logout", (req, res) => {
-    req.logout((err) => {
-        if(err) {
-        res.status(500).json({error: err.message});
-        }
-        req.session.destroy(() => {
-        res.clearCookie("connect.sid");
-        res.status(200).json({message: "Log out successfully"});
-    });
-    });
-});
+app.use("/", (req, res, next) => {
+    return next(new ExpressError(404, "Page Not Found"));
+})
 
 app.use((err, req, res, next) => {
     let {status=500, message="Something went wrong"} = err;
-    res.status(status).send(message);
+    res.status(status).json(message);
 })
 
 app.listen(PORT, (req, res) => {

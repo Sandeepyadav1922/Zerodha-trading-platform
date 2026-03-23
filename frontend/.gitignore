@@ -9,7 +9,8 @@
 /coverage
 
 # Environment Variable
-.env
+.env.development
+.env.production
 
 # production
 /build

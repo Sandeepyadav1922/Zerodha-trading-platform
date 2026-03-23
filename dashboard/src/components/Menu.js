@@ -8,12 +8,13 @@ const Menu = ({user}) => {
 
   const handleMenuClick = (index) => {
     setselectedMenu(index);
+    setMenuOpen(false);
   };
 
   const handleLogOut = async () => {
     try {
       await api.post("/logout");
-      window.location.href = "https://zerodha-app-qfcm.onrender.com";
+      window.location.href = process.env.REACT_APP_REDIRECT_URL;
     } catch(err) {
       console.log(err);
       alert("Log Out failled");
@@ -26,9 +27,6 @@ const Menu = ({user}) => {
   return (
     <div className="menu-container">
       <img className="img-logo" alt="img-logo" src="logo (1).png" style={{ width: "50px" }} />
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-        ☰
-      </div>
       <div className={`menus ${menuOpen ? "active" : ""}`}>
         <ul>
           <li>
@@ -98,9 +96,8 @@ const Menu = ({user}) => {
           </li>
         </ul>
         <hr />
-        <div className="profile">
-          <div className="avatar">U</div>
-          <p className="username">{user.username}</p>
+        <div className="profile" onClick={() => setMenuOpen(!menuOpen)}>
+          <div className="avatar">{user.username[0].toUpperCase()}</div>
         </div>
       </div>
     </div>
